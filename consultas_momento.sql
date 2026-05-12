@@ -68,4 +68,21 @@ SELECT COUNT(*) AS velho_de_casa
 FROM funcionarios WHERE data_contratacao BETWEEN '1990-01-01' AND '1999-12-31';
 
 -- 3.7 Como a média salarial da Momento evoluiu ao longo dos anos? Agrupe por ano de contratação e calcule a média salarial.
--- sei la depois eu faço kkkkkkkkkk
+SELECT YEAR(data_contratacao) AS ano, AVG(salario) AS dinheirao
+FROM funcionarios
+GROUP BY YEAR(data_contratacao)
+ORDER BY ano ASC;
+
+-- 4.1 Qual é o custo total de suprimentos em cada escritório? Ordene do mais caro ao mais barato.
+SELECT SUM(custo) as custo_total
+FROM suprimentos
+GROUP BY (escritorio_id)
+ORDER BY custo_total DESC;
+
+-- 4.2 Qual escritório possui a maior quantidade de diferentes tipos de suprimentos?
+SELECT escritorio_id, COUNT(quantidade_comprada) AS numero_suprimentos FROM suprimentos
+GROUP BY (escritorio_id)
+ORDER BY numero_suprimentos DESC
+LIMIT 1; -- escritorio id: 2500 | numero suprimentos: 10
+
+-- 4.3 Qual é o suprimento mais caro (considerando preço unitário) em toda a empresa?
