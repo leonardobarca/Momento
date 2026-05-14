@@ -86,3 +86,18 @@ ORDER BY numero_suprimentos DESC
 LIMIT 1; -- escritorio id: 2500 | numero suprimentos: 10
 
 -- 4.3 Qual é o suprimento mais caro (considerando preço unitário) em toda a empresa?
+SELECT suprimento_nome, custo
+FROM suprimentos
+ORDER BY custo DESC
+LIMIT 1; -- Computers, custa 200.000
+
+-- 4.4 Calcule o valor total do inventário de suprimentos da empresa (quantidade × preço unitário de todos os itens em todos os escritórios).
+SELECT SUM(custo * quantidade_comprada)
+FROM suprimentos;
+
+-- 5.1 Quais produtos foram vendidos pela Momento? Liste todos os produtos únicos.
+SELECT produto_nome
+FROM produtos;
+
+-- 5.2 Qual é o produto mais vendido (maior quantidade total)?
+-- sei la kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
